@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome To Login Based Calculator</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+      h2 {
+        text-align: center;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        margin: 0 auto;
+        width: 300px;
+      }
+      label,
+      select,
+      input {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      input[type="submit"] {
+        padding: 8px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> Welcome To Login Based Calculator</h1>
+    <h2>Signup</h2>
+    <form id="signupForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="operator">Choose Operator:</label>
+      <select id="operator" name="operator" required>
+        <option value="addition">Addition (+)</option>
+        <option value="subtraction">Subtraction (-)</option>
+        <option value="multiplication">Multiplication (*)</option>
+        <option value="division">Division (/)</option>
+      </select>
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from submitting normally
+
+          // Capture form data
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const operator = document.getElementById("operator").value;
+
+          // Save the data in localStorage (simulating session)
+          localStorage.setItem("name", name);
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+          localStorage.setItem("operator", operator);
+
+          // Redirect to the login page
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>
